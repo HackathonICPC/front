@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Notifications from "./Notifications";
 import {Link} from 'react-router-dom'
+
 /*
 props:
     src: path to img

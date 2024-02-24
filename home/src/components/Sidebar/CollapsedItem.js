@@ -13,7 +13,6 @@ import { Link } from "react-router-dom"
 
 export default function CollapsedItem(props) {
   const [open, setOpen] = useState(false)
-  console.log(open)
   function handleOpen(){
     setOpen(!open)
   }
