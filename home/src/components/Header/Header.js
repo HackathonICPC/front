@@ -12,8 +12,7 @@ export default function Header(){
             <SearchBar/>
             <nav class="header-nav ms-auto">
                 <ul class="d-flex align-items-center">
-                    <Notifications/>
-                    <Profile src="assets/img/sour_soup.jpg" name="Суп в супе"/>
+                    <Profile/>
                 </ul>
             </nav>     
         </header>
