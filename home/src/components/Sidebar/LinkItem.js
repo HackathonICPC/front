@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"
 /*
   props:
     linkActive: true / false
@@ -12,11 +13,11 @@ export default function LinkItem(props) {
   }
   return (
     <li class = 'nav-item'>
-        <a class = {`nav-item ${(active)? 'active' : ''}`} href = '#' 
-        onClick={handleClick}>
+        <Link to='/courses/'
+             onClick={handleClick}>
             <i class = {props.biitem}></i>
             <span> {props.name} </span>
-        </a>
+        </Link>
     </li>
   )
 }

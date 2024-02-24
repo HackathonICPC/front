@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"
 
 /*
   props:
   name: string
     collapsedItems: [{
-      link: string
+      id: int
       name: string
     }]
     biItem: string
@@ -16,11 +17,12 @@ export default function CollapsedItem(props) {
   function handleOpen(){
     setOpen(!open)
   }
+  
   const showCollapsedItem = () =>{
     return props.collapsedItems.map((x) => <li>
-      <a href="x.link">
+      <Link to={`/courses/${x.id}`}>
         <i class="bi bi-circle"></i><span>x.name</span>
-      </a>
+      </Link>
     </li>)
   }
   return (
