@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom"
 import Card from "../components/Card";
 
-export default function Home() {
+
+  const imgs = ['https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061918bcc5.gif',
+  "https://i.pinimg.com/originals/15/c1/44/15c144e8dc552a100b3292d268854499.gif",
+  "https://i.pinimg.com/originals/cc/cc/04/cccc04f856af5a5dba7c5fca2e73f982.gif",
+  "https://i.pinimg.com/originals/c0/5b/44/c05b4465bebf0f69d6b1773fb081dbe2.gif",
+  "https://i.pinimg.com/originals/dc/5d/d9/dc5dd952ed21a25a8ca383af55af85f0.gif",
+  ]
+
+
+export default function Home(props) {
 return (
     <div>
         <div className="pagetitle">
@@ -19,11 +28,14 @@ return (
 
         <div className="col-lg-8">
           <div className="row">
+            
             {[1, 2, 3, 4, 5].map((id) => (
-              <Card img='https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061918bcc5.gif'
+              <Card img={imgs[id-1]}
                 title={`Task ${id}`}
                 text="АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА"
-                link={`/tasks/${id}`} />
+                link={`/tasks/${id}`}
+                tag={'Pracrice'}
+              />
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ props:
     img: string https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061918bcc5.gif
     title: string
     text: string
-
+    tag: string
 */
 export default function Card(props) {
 return(
@@ -21,6 +21,7 @@ return(
                             <Link to={props.link}>
                                 <h5 className="card-title">{props.title}</h5>
                             </Link>
+                            <span class="tag">{props.tag}</span>
                             <p className="card-text"> {props.text} </p>
                             {/*<p className="card-text">
                                 <small className="text-muted">Last updated 3 mins ago</small>

@@ -19,7 +19,7 @@ export default function Profile(props){
                 </Link>
             </li>
             <li class="nav-item dropdown pe-3">
-            <Link className="nav-link nav-profile d-flex align-items-center pe-0" to = '/register'>
+            <Link className="nav-link nav-profile d-flex align-items-center pe-0" to = '/register/'>
                     <span class="d-none d-md-block  ps-2"> Register </span>
             </Link>
             </li>
@@ -31,16 +31,16 @@ export default function Profile(props){
             <>
             <Notifications/>
             <li class="nav-item dropdown pe-3">
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                <Link class="nav-link nav-profile d-flex align-items-center pe-0" to='profile/' data-bs-toggle="dropdown">
                     <img src={imgSrc} alt="Profile" class="rounded-circle"/>
                     <span class="d-none d-md-block dropdown-toggle ps-2"> {name}</span>
-                </a>
+                </Link>
             </li>
             </>
         )
     }
     return (<>
-        {(id === -1)? showLogin(): showProfile()}
+        {(id === -2)? showLogin(): showProfile()}
         </>
         );
 }
