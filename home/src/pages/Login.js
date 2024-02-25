@@ -29,8 +29,8 @@ export default function Login(props){
             // )
         AuthService.login(username, password)
         navigate('/')
-        navigate(0)
-        console.log(AuthService.getCurrentUser())
+        //console.log(AuthService.getCurrentUser())
+        //navigate(0)
     }
 
     return(

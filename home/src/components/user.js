@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import AuthService from "./auth";
-const API_URL = 'http://127.0.0.1:8000/api/'
+const API_URL = 'http://127.0.0.1:3306/api/'
 
 const getID = () =>{
   return AuthService.getCurrentUser()
@@ -51,9 +51,22 @@ const getAllCourses = () =>{
       method: 'get',
       url: 'http://127.0.0.1:8000/api/getAllCourses',
     })
-    return response.data
+    return response
   }
   return hz()
+}
+const createCourse = (title, descr) =>{
+  const id = getID()
+  if (id == null) return
+  console.log(title, descr)
+  async function addCourse(){
+    const response = await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/createCourse',
+      params: {"id": id, "username": title, "describtion": descr}
+    })
+  }
+  addCourse()
 }
 
 
@@ -61,7 +74,8 @@ const UserService = {
   getID,
   getName,
   getMyCourses,
-  getAllCourses
+  getAllCourses,
+  createCourse
 }
 
 export default UserService;

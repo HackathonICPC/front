@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import UserService from "../user";
 import { Link } from "react-router-dom"
 
 /*
@@ -13,15 +14,23 @@ import { Link } from "react-router-dom"
 
 export default function CollapsedItem(props) {
   const [open, setOpen] = useState(false)
+  const [courses, setCourses] = useState(null)
+  const id = UserService.getID()
+  // useEffect(() => {
+  //   if (id != null)
+  //   {
+  //       UserService.getAllCourses().then((response) => {setCourses(response.data)})
+  //   }
+  // })
   function handleOpen(){
     setOpen(!open)
   }
-  
   const showCollapsedItem = () =>{
+    //console.log(courses)
     return props.collapsedItems.map((x) => <li>
       <Link to={`/courses/${x.id}`}>
-        <i class="bi bi-circle"></i><span>x.name</span>
-      </Link>
+        <i class="bi bi-circle"></i><span>{x.name}</span>
+      </Link> 
     </li>)
   }
   return (
