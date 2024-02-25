@@ -12,16 +12,43 @@ const register = (username, email, password) => {
 };
 
 const login = (username, password) => {
-  const useUrl = 'http://127.0.0.1:8000/api/signin'
-  console.log(useUrl)
+  async function getProfileID(){
+    let username = 'e'
+    let password = 'c'
+    const response =  await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/signin',
+       params: {"username": username, "password": password}
+    })
+    localStorage.setItem("user", JSON.stringify(response.data));
+    //axios.get(IP_ADRESS)
+    //.then((response) =>{ console.log(response.status)})
+  }
+  getProfileID()
+  /*
+  let username = 'e'
+    let password = 'c'
+    const response =  await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/signin',
+      params: {"username": username, "password": password}
+    })
+  */
   // axios.post(`http://127.0.0.1:8000/api/signup`);
-  return axios
-    .post(useUrl)
-    .then((response) => {
-      console.log(response.data)
-      localStorage.setItem("user", JSON.stringify(response.data));
-      return response.data;
-    });
+  
+  //console.log(username, password)
+  
+  // return axios
+  //   .post({
+  //     method: 'post',
+  //     url: 'http://127.0.0.1:8000/api/signin',
+  //     params: {"username": username, "password": password},
+  //   })
+  //   .then((response) => {
+  //     //console.log(response.data)
+  //     localStorage.setItem("user", JSON.stringify(response.data));
+  //     return response.data;
+  //   });
 };
 
 const logout = () => {

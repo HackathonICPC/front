@@ -22,12 +22,14 @@ export default function Login(props){
     const handleLogin = (e) =>{
         e.preventDefault()
         
-        AuthService.login(username, password).then(
-            () => {
-                navigate('/')
-                window.location.reload();
-            }
-        )
+        // AuthService.login(username, password).then(
+        //     () => {
+            //         window.location.reload();
+            //     }
+            // )
+        AuthService.login(username, password)
+        navigate('/')
+        console.log(AuthService.getCurrentUser())
     }
 
     return(
