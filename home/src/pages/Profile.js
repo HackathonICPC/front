@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link, redirect} from 'react-router-dom'
 import AuthService from "../components/auth";
+import UserService from '../components/user';
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // TODO: Сделать красивую кнопку выхода из профиля
 export default function UserProfile() {
@@ -11,7 +13,14 @@ export default function UserProfile() {
     AuthService.logout()
     navigate('/')
     navigate(0)
-}
+  } 
+  const id = UserService.getID()
+  const [name, setName] = useState('username')
+  useEffect(() => {
+      if(id != null){
+        UserService.getName().then((response) => {setName(response.data)})
+      }
+  })
   return (
     <>
     <div className="pagetitle">
@@ -39,7 +48,7 @@ export default function UserProfile() {
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="inputUsername">Username</label>
-                                    <input type="text" class="form-control" id="inputUsername" placeholder="Username"/>
+                                    <input type="text" class="form-control" id="inputUsername" placeholder={name}/>
                                 </div>
                                 
                             </div>
@@ -59,7 +68,7 @@ export default function UserProfile() {
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="submit" class="btn btn-primary" onClick={handleLogout} >Logout</button>
+                        <button class="btn btn-primary" onClick={handleLogout} >Logout</button>
                   </form>
                 </div>
               </div>
