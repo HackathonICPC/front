@@ -20,24 +20,20 @@ export default function Login(props){
     };
 
     const handleLogin = (e) =>{
+        console.log("!!!!")
         e.preventDefault()
-        
-        // AuthService.login(username, password).then(
-        //     () => {
-            //         window.location.reload();
-            //     }
-            // )
         AuthService.login(username, password)
         navigate('/')
         navigate(0)
+        debugger
         console.log(AuthService.getCurrentUser())
     }
-
+    
     return(
         <>
         <form onSubmit={handleLogin}>
         <div class="form-group">
-            <label for="InputEmail">Email address</label>
+            <label for="Login">Login</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
             onChange={onChangeUsername}/>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>

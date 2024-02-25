@@ -12,13 +12,6 @@ const imgs = ['https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061
   ]
 
 export default function Courses(props) {
-  const [data, setData] = useState(null)
-  useEffect(() => {
-        UserService.getAllCourses().then((response) => {setData(response.data)})
-      
-  })
-  console.log(data)
-
 return (
     <div>
         <div className="pagetitle">
