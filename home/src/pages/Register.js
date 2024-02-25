@@ -25,12 +25,8 @@ export default function Register(props){
   const handleRegister = (e) => {
     e.preventDefault()
 
-    AuthService.register(username, name, password).then(
-      () =>{
-        navigate('/')
-        window.location.reload();
-      }
-    )
+    AuthService.register(username, name, password)
+    navigate('/')
   }
   return(
     <>
