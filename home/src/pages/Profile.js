@@ -1,7 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import AuthService from "../components/auth";
+import { useNavigate } from "react-router-dom";
 
+// TODO: Сделать красивую кнопку выхода из профиля
 export default function UserProfile() {
+  const navigate = useNavigate();
+  const handleLogout = (e) =>{
+    e.preventDefault()
+    
+    // AuthService.login(username, password).then(
+    //     () => {
+        //         window.location.reload();
+        //     }
+        // )
+    AuthService.logout()
+    navigate('/')
+}
   return (
     <>
     <div className="pagetitle">
@@ -50,6 +65,7 @@ export default function UserProfile() {
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary" onClick={handleLogout} >Logout</button>
                   </form>
                 </div>
               </div>
