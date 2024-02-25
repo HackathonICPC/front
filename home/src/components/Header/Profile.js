@@ -14,6 +14,7 @@ export default function Profile(props){
     const imgSrc = 'assets/img/sour_soup.jpg' // TODO
     const [name, setName] = useState(null)
     useEffect(() => {
+        if(id!=null)
         UserService.getName().then((response) => {setName(response.data)})
     })
     const showLogin = () =>{

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import Card from "../components/Card";
-
+import UserService from "../components/user";
+import { useState, useEffect } from "react";
 
 const imgs = ['https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061918bcc5.gif',
   "https://i.pinimg.com/originals/15/c1/44/15c144e8dc552a100b3292d268854499.gif",
@@ -11,6 +12,13 @@ const imgs = ['https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061
   ]
 
 export default function Courses(props) {
+  const [data, setData] = useState(null)
+  useEffect(() => {
+        UserService.getAllCourses().then((response) => {setData(response.data)})
+      
+  })
+  console.log(data)
+
 return (
     <div>
         <div className="pagetitle">
