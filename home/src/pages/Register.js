@@ -27,6 +27,7 @@ export default function Register(props){
 
     AuthService.register(username, name, password)
     navigate('/')
+    navigate(0)
   }
   return(
     <>
