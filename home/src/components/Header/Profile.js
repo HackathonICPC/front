@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Notifications from "./Notifications";
 import {Link} from 'react-router-dom'
 import UserService from "../user";
+import AuthService from "../auth";
+
 /*
 props:
     src: path to img
@@ -39,7 +41,7 @@ export default function Profile(props){
             <Notifications/>
             <li class="nav-item dropdown pe-3">
                 <Link class="nav-link nav-profile d-flex align-items-center pe-0" to='profile/'>
-                    <img src={imgSrc} alt="Profile" class="rounded-circle"/>
+                    <img src={'/assets/img/sour_soup.jpg'} alt="Profile" class="rounded-circle"/>
                     <span class="d-none d-md-block ps-2"> {name}</span>
                 </Link>
             </li>

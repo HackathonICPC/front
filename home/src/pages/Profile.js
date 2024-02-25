@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, redirect} from 'react-router-dom'
 import AuthService from "../components/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -8,14 +8,9 @@ export default function UserProfile() {
   const navigate = useNavigate();
   const handleLogout = (e) =>{
     e.preventDefault()
-    
-    // AuthService.login(username, password).then(
-    //     () => {
-        //         window.location.reload();
-        //     }
-        // )
     AuthService.logout()
     navigate('/')
+    navigate(0)
 }
   return (
     <>
@@ -58,26 +53,13 @@ export default function UserProfile() {
                                 <div class="text-center">
                                     <img src="/assets/img/sour_soup.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128"/>
                                     <div class="mt-2">
-                                        <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
+                                        <span class="btn btn-primary"><i class="fa fa-upload">Выберете файл</i></span>
                                     </div>
-                                    <small>For best results, use an image at least 128px by 128px in .jpg format</small>
                                 </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                         <button type="submit" class="btn btn-primary" onClick={handleLogout} >Logout</button>
-                  </form>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="tab-pane fade" id="password" role="tabpanel">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">Password</h5>
-                  <form>
-                    {/* Вставьте вашу форму здесь */}
                   </form>
                 </div>
               </div>

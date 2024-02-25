@@ -17,7 +17,6 @@ const getName = () =>{
         url: 'http://127.0.0.1:8000/api/getName',
         params: {"id": id}
       })
-      //console.log(response.data)
       return response
     }
     return hz()
