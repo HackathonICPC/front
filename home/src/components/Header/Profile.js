@@ -15,8 +15,12 @@ export default function Profile(props){
     const [name, setName] = useState(null)
     useEffect(() => {
         if(id!=null)
-        UserService.getName().then((response) => {setName(response.data)})
+        if (id != null)
+        {
+            UserService.getName().then((response) => {setName(response.data)})
+        }
     })
+    console.log(name)
     const showLogin = () =>{
         return (
             <>  
@@ -40,7 +44,7 @@ export default function Profile(props){
             <li class="nav-item dropdown pe-3">
                 <Link class="nav-link nav-profile d-flex align-items-center pe-0" to='profile/'>
                     <img src={'/assets/img/sour_soup.jpg'} alt="Profile" class="rounded-circle"/>
-                    <span class="d-none d-md-block ps-2"> {name}</span>
+                    <span class="d-none d-md-block ps-2"> {name} </span>
                 </Link>
             </li>
             </>

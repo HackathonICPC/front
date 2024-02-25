@@ -26,8 +26,9 @@ export default function Register(props){
     e.preventDefault()
 
     AuthService.register(username, name, password)
+    console.log(AuthService.getCurrentUser())
     navigate('/')
-    navigate(0)
+    //navigate(0)
   }
   return(
     <>
