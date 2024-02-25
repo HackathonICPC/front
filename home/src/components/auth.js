@@ -3,18 +3,19 @@ import React, { useContext } from 'react';
 
 import {API_URL} from '../constant'
 
-const register = (username, email, password) => {
-  return axios.post(API_URL + "signup", {
-    username,
-    email,
-    password,
-  });
+const register = (username, name, password) => {
+  async function signUp(){
+    const response = await axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/signup',
+      params: {"username": username, "name" : name, "password": password}
+    })
+  }
+  signUp()
 };
 
 const login = (username, password) => {
   async function getProfileID(){
-    let username = 'e'
-    let password = 'c'
     const response =  await axios({
       method: 'post',
       url: 'http://127.0.0.1:8000/api/signin',
@@ -53,9 +54,6 @@ const login = (username, password) => {
 
 const logout = () => {
   localStorage.removeItem("user");
-  return axios.post(API_URL + "signout").then((response) => {
-    return response.data;
-  });
 };
 
 const getCurrentUser = () => {

@@ -40,7 +40,7 @@ export default function Profile(props){
         )
     }
     return (<>
-        {(id === -2)? showLogin(): showProfile()}
+        {(id === -1)? showLogin(): showProfile()}
         </>
         );
 }
