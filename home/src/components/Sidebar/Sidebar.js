@@ -18,6 +18,7 @@ export default function Sidebar(){
                 }
                 ]}
                 />
+                
             </ul>
             {/* <ul class = 'sidebar-nav' id = 'sidebar-nav'>
                 <NavItem linkActive = {false} 

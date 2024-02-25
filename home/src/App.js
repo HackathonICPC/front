@@ -3,29 +3,35 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 import React from 'react';
 
+import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 
+import AuthService from "./components/auth";
+
+import { CookiesProvider, useCookies } from 'react-cookie'
+
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 
-const globalProfileInfo = React.createContext(-1)
-export const IP_ADRESS = React.createContext('http://127.0.0.1:8000/')
+// export const getProfileID = async()=>{
+//   return axios.get(`http://127.0.0.1:8000/`);
+// }
 
 //<Route path='/courses/:id' element={<Course id=/>
 function App() {
-  async function getProfileId(){
-    const config={
-        method: 'get',
-        url: IP_ADRESS
-    }
-    axios.get(IP_ADRESS)
-    .then((response) =>{ console.log(response.status)})
+  async function getProfileID(){
+    const response =  await axios.post(`http://127.0.0.1:8000/api/signin`);
+    const items = response.data
+    console.log(items)
+    //axios.get(IP_ADRESS)
+    //.then((response) =>{ console.log(response.status)})
   }
-  getProfileId()
+  //console.log(AuthService.getCurrentUser())
   return (
       <div>
       <Header/>
@@ -35,10 +41,12 @@ function App() {
           <Route exact path='/' element={<Home/>}/> 
           <Route path='/courses/' element={<Courses/>}/>
           <Route path='/login/' element={<Login/>}/>
+          <Route path='/register/' element={<Register/>}/>
         </Routes>
       </main>
       </div>
   );
+
 }
 
 export default App;

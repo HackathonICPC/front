@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Notifications from "./Notifications";
 import {Link} from 'react-router-dom'
-
 /*
 props:
     src: path to img
@@ -16,7 +15,7 @@ export default function Profile(props){
             <>  
             <li class="nav-item dropdown pe-3">
                 <Link className="nav-link nav-profile d-flex align-items-center pe-0" to = '/login/'>
-                    <span class="d-none d-md-block  ps-2"> Login </span>
+                    <span class="d-none d-md-block  ps-2"> Login</span>
                 </Link>
             </li>
             <li class="nav-item dropdown pe-3">
