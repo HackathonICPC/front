@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Notifications from "./Notifications";
 import {Link} from 'react-router-dom'
+import AuthService from "../auth";
 /*
 props:
     src: path to img
@@ -9,7 +10,6 @@ props:
 export default function Profile(props){
     const [imgSrc, setImgSrc] = useState('assets/img/sour_soup.jpg')
     const [name, setName] = useState('Суп в супе')
-    const [id, setId] = useState(-1)
     const showLogin = () =>{
         return (
             <>  
@@ -40,7 +40,7 @@ export default function Profile(props){
         )
     }
     return (<>
-        {(id === -2)? showLogin(): showProfile()}
+        {(AuthService.getCurrentUser() == null) ? showLogin(): showProfile()}
         </>
         );
 }
