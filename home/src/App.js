@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Course from './pages/Course';
 import Task from './pages/Task';
+import AuthService from './components/auth';
 
 //<Route path='/courses/:id' element={<Course id=/>
 // async function getProfileID(){

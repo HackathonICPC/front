@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import Notifications from "./Notifications";
 import {Link} from 'react-router-dom'
-import AuthService from "../auth";
+import UserService from "../user";
 /*
 props:
     src: path to img
     name: text
 */
 export default function Profile(props){
-    const [imgSrc, setImgSrc] = useState('assets/img/sour_soup.jpg')
-    const [name, setName] = useState('Суп в супе')
+    const exist = UserService.userExist()
+    
     const showLogin = () =>{
         return (
             <>  
@@ -38,7 +38,7 @@ export default function Profile(props){
             </li>
             </>
         )
-    }
+    }   
     return (<>
         {(AuthService.getCurrentUser()==null)? showLogin(): showProfile()}
         </>

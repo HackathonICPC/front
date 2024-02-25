@@ -1,28 +1,67 @@
 import React from 'react';
 import axios from "axios";
-import {API_URL} from '../constant'
+import AuthService from "../components/auth";
+const API_URL = 'http://127.0.0.1:8000/api/'
 
-const getPublicContent = () => {
-  return axios.get(API_URL + "all");
-};
+const userExist = () =>{
+  return AuthService.getCurrentUser() != null
+}
 
-const getUserBoard = () => {
-  return axios.get(API_URL + "user");
-};
+// Получаем ник пользователя
+const getName = () =>{
+  if (userExist()){
+    const id = AuthService.getCurrentUser()
+    async function hz(){
+      const response = await axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/api/getName',
+        params: {"id": id}
+      })
+      return response.data
+    }
+    return hz()
+  }
+  else{
+    return null
+  }
+}
 
-const getModeratorBoard = () => {
-  return axios.get(API_URL + "mod");
-};
+const getMyCourses = () =>{
+  if (userExist()){
+  const id = AuthService.getCurrentUser()
+  async function hz(){
+    const response = await axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/api/getMyCourses',
+      params: {"id": id}
+    })
+    return response.data
+  }
+    return hz()
+  }
+  else{
+    return null
+  }
 
-const getAdminBoard = () => {
-  return axios.get(API_URL + "admin");
-};
+}
+
+const getAllCourses = () =>{
+  async function hz(){
+    const response = await axios({
+      method: 'get',
+      url: 'http://127.0.0.1:8000/api/getAllCourses',
+    })
+    return response.data
+  }
+  return hz()
+}
+
 
 const UserService = {
-  getPublicContent,
-  getUserBoard,
-  getModeratorBoard,
-  getAdminBoard,
+  userExist,
+  getName,
+  getMyCourses,
+  getAllCourses
 }
 
 export default UserService;
