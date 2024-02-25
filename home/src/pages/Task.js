@@ -69,6 +69,12 @@ export default function Tasks(props) {
         <button type="submit" class="form-submit-btn">Submit</button>
       </form>
     </div>
+    
+    <div class="form-container">
+      <form class="form">
+    <Link to={`/grades/${id}`}> <button class="form-submit-btn">Grade Homeworks</button> </Link> 
+      </form>
+    </div>
   </div>
 
 </div>

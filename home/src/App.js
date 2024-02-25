@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Course from './pages/Course';
 import Task from './pages/Task';
+import Grades from './pages/Grades';
 //import CreateCourse from './pages/CreateCourse'
 import AuthService from './components/auth';
 
@@ -49,11 +50,11 @@ function App() {
           <Route path='/tasks/' element={<Home/>}/>
           <Route path='/tasks/:id' element={<Task/>}/>
           {/* <Route path='/createCourse' element={<CreateCourse/>}/> */}
+          <Route path='/grades/:id' element={<Grades/>}/>
         </Routes>
       </main>
       </div>
   );
-
 }
 
 export default App;

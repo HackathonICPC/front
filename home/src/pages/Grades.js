@@ -1,28 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import Card from "../components/Card";
-import UserService from "../components/user";
-import { useState, useEffect } from "react";
+import Card from "../components/GradeCard";
 
-const imgs = ['https://i.pinimg.com/originals/f6/d2/90/f6d290a15e776e6631873f061918bcc5.gif',
-  "https://i.pinimg.com/originals/15/c1/44/15c144e8dc552a100b3292d268854499.gif",
-  "https://i.pinimg.com/originals/cc/cc/04/cccc04f856af5a5dba7c5fca2e73f982.gif",
-  "https://i.pinimg.com/originals/c0/5b/44/c05b4465bebf0f69d6b1773fb081dbe2.gif",
-  "https://i.pinimg.com/originals/dc/5d/d9/dc5dd952ed21a25a8ca383af55af85f0.gif",
+
+const imgs = ["https://i.pinimg.com/originals/bf/1b/14/bf1b14f9d3dbb892411d1323f4b3198e.gif",
+'https://i.pinimg.com/originals/a8/02/2f/a8022ff27f7fafc4bcfa6436ed99a494.gif',
+  "https://cdn.lowgif.com/full/1fcd4701a6e1d05b-.gif",
+  "https://i.pinimg.com/originals/62/a3/0c/62a30c5d65b6cd0d00b9d6e0e1364f55.gif",
+  "https://66.media.tumblr.com/a57d8b5994cfc711c4069f55e81fdb7d/tumblr_p2co6eCmHi1wsge6to5_500.gif",
+  
   ]
 
-export default function Courses(props) {
-  const [data, setData] = useState(null)
-  useEffect(() => {
-        UserService.getAllCourses().then((response) => {setData(response.data)})
-      
-  })
-  console.log(data)
-
+export default function Grades(props) {
 return (
     <div>
         <div className="pagetitle">
-            <h1>Courses</h1>
+            <h1>Grade Homework</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><Link to="/">Home</Link></li>
@@ -38,10 +31,10 @@ return (
           <div className="row">
                 {[1, 2, 3, 4, 5].map((id) => (
                     <Card img={imgs[id-1]}
-                        title={`Course ${id}`}
-                        text="АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА АБОБА"
-                        link={`/courses/${id}`}
-                        tag='Course'
+                        title={`Student ${id}`}
+                        text="Student Comments"
+                        // link={`/courses/${id}`}
+                        tag='Group 251'
                     />
                 ))}
           </div>
