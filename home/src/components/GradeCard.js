@@ -26,11 +26,17 @@ return(
                             
                            
                             <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-4">
+                                
+                            <div class="row g-2">
+                                <div class="col-lg-1">
                                 <button class="form-submit-btn" type="button">Link to repository</button>
-                            <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
-                            
-                            <button class="form-submit-btn" type="button">Grade</button>
+                            </div></div>
 
+                                <div class="row g-2">
+                                    <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
+                                    
+                                    <button class="form-submit-btn" type="button">Grade</button>
+                                </div>
                            
                             </div>  
                        

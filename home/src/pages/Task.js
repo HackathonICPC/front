@@ -33,7 +33,7 @@ export default function Tasks(props) {
           <div class="card">
   
   <div class="card-body">
-    <h5 class="card-title">A. Theatre Square</h5>
+    <h2 class="card-title">A. Theatre Square</h2>
     <div class="task_list">
       <ul>
         <li><a href="#" class="fw-bold text-dark">time limit:</a> 1 second</li>
@@ -58,10 +58,7 @@ export default function Tasks(props) {
     
     <div class="form-container">
       <form class="form">
-        <div class="form-group">
-          <label for="email">Repository Link</label>
-          <input required="" name="email" id="email" type="text"/>
-        </div>
+        
         <div class="form-group">
           <label for="textarea">Comment</label>
           <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
@@ -72,7 +69,11 @@ export default function Tasks(props) {
     
     <div class="form-container">
       <form class="form">
-    <Link to={`/grades/${id}`}> <button class="form-submit-btn">Grade Homeworks</button> </Link> 
+      <div class="form-group">
+          <label for="textarea">Comment</label>
+          <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
+        </div>
+      <Link to={`/grades/${id}`}> <button class="form-submit-btn">Grade Homeworks</button> </Link> 
       </form>
     </div>
   </div>

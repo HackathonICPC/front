@@ -166,5 +166,10 @@ code {
 }
 
 
+.sidebar {
+  font-size: 20px;
+}
 
-
+.card-title {
+  font-size: 26px;
+}
