@@ -1,23 +1,24 @@
 import React from 'react';
 import axios from "axios";
-import AuthService from "../components/auth";
+import AuthService from "./auth";
 const API_URL = 'http://127.0.0.1:8000/api/'
 
-const userExist = () =>{
-  return AuthService.getCurrentUser() != null
+const getID = () =>{
+  return AuthService.getCurrentUser()
 }
 
 // Получаем ник пользователя
 const getName = () =>{
-  if (userExist()){
-    const id = AuthService.getCurrentUser()
+  if (getID() != null){
+    const id = Number(getID())
     async function hz(){
       const response = await axios({
         method: 'get',
         url: 'http://127.0.0.1:8000/api/getName',
         params: {"id": id}
       })
-      return response.data
+      //console.log(response.data)
+      return response
     }
     return hz()
   }
@@ -27,7 +28,7 @@ const getName = () =>{
 }
 
 const getMyCourses = () =>{
-  if (userExist()){
+  if (getID() != null){
   const id = AuthService.getCurrentUser()
   async function hz(){
     const response = await axios({
@@ -58,7 +59,7 @@ const getAllCourses = () =>{
 
 
 const UserService = {
-  userExist,
+  getID,
   getName,
   getMyCourses,
   getAllCourses

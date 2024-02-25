@@ -8,8 +8,12 @@ props:
     name: text
 */
 export default function Profile(props){
-    const exist = UserService.userExist()
-    
+    const id = UserService.getID()
+    const imgSrc = 'assets/img/sour_soup.jpg' // TODO
+    const [name, setName] = useState(null)
+    useEffect(() => {
+        UserService.getName().then((response) => {setName(response.data)})
+    })
     const showLogin = () =>{
         return (
             <>  
@@ -40,7 +44,7 @@ export default function Profile(props){
         )
     }   
     return (<>
-        {(AuthService.getCurrentUser()==null)? showLogin(): showProfile()}
+        {(id==null)? showLogin(): showProfile()}
         </>
         );
 }
